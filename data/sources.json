@@ -1,0 +1,32 @@
+{
+  "bandringa-2010": {
+    "type": "book",
+    "authors": ["Bandringa, Robert W."],
+    "year": 2010,
+    "title": "Inuvialuit Nautchiangit: Relationships between people and plants",
+    "publisher": "Inuvialuit Cultural Resource Centre & Parks Canada",
+    "place": "Inuvik, NWT",
+    "abbreviation": "Bandringa 2010"
+  },
+  "icrc-dictionary": {
+    "type": "online_dictionary",
+    "publisher": "Inuvialuit Cultural Resource Centre",
+    "title": "Inuvialuktun Online Dictionary",
+    "abbreviation": "ICRC"
+  },
+  "porsild-cody-1980": {
+    "type": "book",
+    "authors": ["Porsild, A.E.", "Cody, W.J."],
+    "year": 1980,
+    "title": "Vascular Plants of Continental Northwest Territories, Canada",
+    "publisher": "National Museum of Natural Sciences",
+    "place": "Ottawa",
+    "abbreviation": "Porsild & Cody 1980"
+  },
+  "inaturalist-isr": {
+    "type": "database",
+    "title": "iNaturalist observations, Inuvialuit Settlement Region",
+    "url": "https://www.inaturalist.org/",
+    "abbreviation": "iNaturalist (ISR)"
+  }
+}

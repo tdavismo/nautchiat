@@ -1,0 +1,26 @@
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Claude Code (per-user state, not project state)
+.claude/settings.local.json
+.claude/cache/
+.claude/agents/
+.claude/sessions/
+
+# Defensive — none of these exist now, but if a build step is added later
+node_modules/
+dist/
+build/
+.cache/
+*.log
+
+# Local exports from the in-app "Download data as JSON" button
+nautchiat-*.json
