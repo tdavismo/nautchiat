@@ -6,7 +6,7 @@
 //   meta    — keyPath key; misc app state (streak, settings)
 
 const DB_NAME = 'nautchiat';
-const DB_VERSION = 2;
+const DB_VERSION = 3;
 
 let dbPromise = null;
 
@@ -29,6 +29,9 @@ function openDB() {
       }
       if (!db.objectStoreNames.contains('photo_overrides')) {
         db.createObjectStore('photo_overrides', { keyPath: 'species_id' });
+      }
+      if (!db.objectStoreNames.contains('extra_species')) {
+        db.createObjectStore('extra_species', { keyPath: 'id' });
       }
     };
     req.onsuccess = () => resolve(req.result);
@@ -134,6 +137,30 @@ export async function topUpDayIntroBonus(introducedToday, now = Date.now()) {
   await setMeta('day_intro_bonus', { date: today, bonus: introducedToday });
 }
 
+// ---- extra species (user-imported, supplements species.json) ----
+
+export async function getExtraSpecies() {
+  const s = await store('extra_species');
+  return (await wrap(s.getAll())) || [];
+}
+
+export async function putExtraSpecies(speciesArray) {
+  const db = await openDB();
+  const tx = db.transaction('extra_species', 'readwrite');
+  const s = tx.objectStore('extra_species');
+  s.clear();
+  for (const item of speciesArray) s.put(item);
+  await new Promise((res, rej) => {
+    tx.oncomplete = res;
+    tx.onerror = () => rej(tx.error);
+  });
+}
+
+export async function clearExtraSpecies() {
+  const s = await store('extra_species', 'readwrite');
+  return await wrap(s.clear());
+}
+
 // ---- photo overrides ----
 
 export async function getPhotoOverride(speciesId) {
@@ -189,11 +216,13 @@ export async function exportAll() {
     license: o.license,
     added_at: o.added_at,
   }));
+  const extraSpecies = await getExtraSpecies();
   return {
     exported_at: new Date().toISOString(),
     reviews,
     history,
     meta: Object.fromEntries(meta.map((m) => [m.key, m.value])),
     photo_overrides_index: overrides,
+    extra_species: extraSpecies,
   };
 }

@@ -3,7 +3,7 @@
 
 import { renderStudy, clearSession } from './study.js';
 import { renderSettings, getSettings, applyTheme } from './settings.js';
-import { getAllPhotoOverrides } from './store.js';
+import { getAllPhotoOverrides, getExtraSpecies } from './store.js';
 import { mergePhotoOverrides, openPhotoModal } from './photo-override.js';
 
 const view = document.getElementById('view');
@@ -22,15 +22,19 @@ const state = {
 // ---------------------------------------------------------------
 
 async function loadData() {
-  const [species, sources, overrides, settings] = await Promise.all([
+  const [species, sources, overrides, extraSpecies, settings] = await Promise.all([
     fetch('data/species.json').then((r) => r.json()),
     fetch('data/sources.json').then((r) => r.json()),
     getAllPhotoOverrides(),
+    getExtraSpecies(),
     getSettings(),
   ]);
+  // Extra species supplement species.json; IDs already in the file are skipped.
+  const existingIds = new Set(species.map((s) => s.id));
+  const merged = [...species, ...extraSpecies.filter((s) => !existingIds.has(s.id))];
   state.overrideObjectUrls.forEach((u) => URL.revokeObjectURL(u));
-  state.overrideObjectUrls = await mergePhotoOverrides(species, overrides);
-  state.species = species;
+  state.overrideObjectUrls = await mergePhotoOverrides(merged, overrides);
+  state.species = merged;
   state.sources = sources;
   applyTheme(settings.theme);
 }

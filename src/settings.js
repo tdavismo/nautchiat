@@ -5,6 +5,7 @@ import {
   getMeta, setMeta,
   resetSrsProgress, exportAll,
   topUpDayIntroBonus, getDayIntroBonus,
+  getExtraSpecies, putExtraSpecies, clearExtraSpecies,
 } from './store.js';
 import { DEFAULT_TARGET_RETENTION } from './fsrs.js';
 
@@ -108,6 +109,7 @@ export async function renderSettings(mount, opts = {}) {
   const onChanged = opts.onChanged || (() => {});
   const s = await getSettings();
   const dayBonus = await getDayIntroBonus();
+  const extraSpecies = await getExtraSpecies();
 
   const page = el('div', { class: 'settings-page' },
     el('h2', { class: 'settings-title' }, 'Settings'),
@@ -221,6 +223,30 @@ export async function renderSettings(mount, opts = {}) {
   ));
 
   // ----- Data -----
+  const importStatus = el('p', { class: 'field-help block' });
+  const importFileInput = el('input', {
+    type: 'file', accept: '.json,application/json', style: 'display:none',
+  });
+  importFileInput.addEventListener('change', async (e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    try {
+      const text = await file.text();
+      let parsed = JSON.parse(text);
+      if (!Array.isArray(parsed)) parsed = [parsed];
+      const valid = parsed.filter(
+        (x) => x && typeof x.id === 'string' && typeof x.scientific_name === 'string' && typeof x.family === 'string',
+      );
+      if (!valid.length) throw new Error('No valid entries found — each needs id, scientific_name, and family.');
+      await putExtraSpecies(valid);
+      onChanged();
+      renderSettings(mount, opts);
+    } catch (err) {
+      importStatus.textContent = `Import failed: ${err.message}`;
+    }
+    importFileInput.value = '';
+  });
+
   page.appendChild(section('Data',
     field('Export',
       el('div', { class: 'field-row' },
@@ -239,8 +265,34 @@ export async function renderSettings(mount, opts = {}) {
             URL.revokeObjectURL(url);
           },
         }, 'Download data as JSON'),
-        el('span', { class: 'field-help' }, 'reviews · history · settings · streak'),
+        el('span', { class: 'field-help' }, 'reviews · history · settings · streak · imported species'),
       ),
+    ),
+    field('Import species',
+      el('div', { class: 'field-row' },
+        el('button', {
+          class: 'btn-secondary',
+          onclick: () => importFileInput.click(),
+        }, 'Import from JSON file'),
+        extraSpecies.length > 0
+          ? el('button', {
+              class: 'btn-secondary',
+              onclick: async () => {
+                if (!confirm(`Remove all ${extraSpecies.length} imported species? This won't affect reviews you've already done.`)) return;
+                await clearExtraSpecies();
+                onChanged();
+                renderSettings(mount, opts);
+              },
+            }, `Remove ${extraSpecies.length} imported`)
+          : null,
+        el('span', { class: 'field-help' },
+          extraSpecies.length > 0
+            ? `${extraSpecies.length} imported species active`
+            : 'supplement the built-in corpus; see data/species-template.json',
+        ),
+        importFileInput,
+      ),
+      importStatus,
     ),
     field('Reset SRS progress',
       el('div', { class: 'field-row' },

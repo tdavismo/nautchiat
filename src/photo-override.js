@@ -33,47 +33,109 @@ function el(tag, attrs = {}, ...children) {
 // iNaturalist refetch
 // ---------------------------------------------------------------
 
-const ACCEPTED_LICENSES = new Set(['cc-by', 'cc-by-sa', 'cc0', 'cc-by-nc']);
+// Accept all CC variants — this app is personal non-commercial use.
+const ACCEPTED_LICENSES = new Set([
+  'cc-by', 'cc-by-sa', 'cc-by-nd',
+  'cc-by-nc', 'cc-by-nc-sa', 'cc-by-nc-nd',
+  'cc0',
+]);
 const PER_PAGE = 20;
+
+// Walks up to MAX_PAGES of observations starting from globalAttempt,
+// returning the first result with a downloadable CC-licensed photo.
+// Returns null (not throws) on total failure so caller can fall back.
+async function fetchFromObservations(taxonName, attempt) {
+  for (let pageOffset = 0; pageOffset < 3; pageOffset++) {
+    const globalAttempt = attempt + pageOffset * PER_PAGE;
+    const page = Math.floor(globalAttempt / PER_PAGE) + 1;
+    const url =
+      `https://api.inaturalist.org/v1/observations` +
+      `?taxon_name=${encodeURIComponent(taxonName)}` +
+      `&quality_grade=research&per_page=${PER_PAGE}&page=${page}` +
+      `&order_by=votes&order=desc`;
+    let data;
+    try {
+      const resp = await fetch(url);
+      if (!resp.ok) continue;
+      data = await resp.json();
+    } catch { continue; }
+    const results = data.results || [];
+    if (!results.length) break;
+
+    const startIndex = globalAttempt % PER_PAGE;
+    for (let i = 0; i < results.length; i++) {
+      const idx = (startIndex + i) % results.length;
+      const obs = results[idx];
+      const photo = obs.photos?.[0];
+      if (!photo || !ACCEPTED_LICENSES.has(photo.license_code)) continue;
+      const photoUrl = photo.url.replace('/square.', '/medium.');
+      try {
+        const blob = await fetch(photoUrl).then((r) => {
+          if (!r.ok) throw new Error(`HTTP ${r.status}`);
+          return r.blob();
+        });
+        return {
+          blob, mime: blob.type || 'image/jpeg',
+          attribution: photo.attribution,
+          license: humanizeLicense(photo.license_code),
+          photo_id: String(photo.id),
+          observation_id: String(obs.id),
+          attempt: globalAttempt,
+        };
+      } catch { continue; } // blob fetch failed; try next photo
+    }
+  }
+  return null;
+}
+
+// Falls back to the taxon's default photo via the taxa endpoint.
+// That endpoint was used to populate the initial corpus and is reliable.
+async function fetchFromTaxa(taxonName, attempt) {
+  let data;
+  try {
+    const resp = await fetch(
+      `https://api.inaturalist.org/v1/taxa` +
+      `?q=${encodeURIComponent(taxonName)}&rank=species&per_page=5`
+    );
+    if (!resp.ok) return null;
+    data = await resp.json();
+  } catch { return null; }
+
+  const taxon =
+    data.results?.find((t) => t.name.toLowerCase() === taxonName.toLowerCase()) ||
+    data.results?.[0];
+  if (!taxon?.default_photo) return null;
+
+  const photo = taxon.default_photo;
+  const photoUrl = photo.medium_url || photo.url?.replace('/square.', '/medium.');
+  if (!photoUrl) return null;
+
+  try {
+    const blob = await fetch(photoUrl).then((r) => {
+      if (!r.ok) throw new Error(`HTTP ${r.status}`);
+      return r.blob();
+    });
+    return {
+      blob, mime: blob.type || 'image/jpeg',
+      attribution: photo.attribution || taxon.name,
+      license: humanizeLicense(photo.license_code),
+      photo_id: String(photo.id || ''),
+      observation_id: '',
+      attempt,
+    };
+  } catch { return null; }
+}
 
 async function fetchInatNext(species, currentAttempt) {
   const taxonName = species.scientific_name;
   const attempt = currentAttempt + 1;
-  // We pull a page of observations, then pick the first unseen one with
-  // a usable license. We use observation id mod-PER_PAGE indexing so
-  // repeated clicks step through different observations.
-  const page = Math.floor(attempt / PER_PAGE) + 1;
-  const url = `https://api.inaturalist.org/v1/observations?taxon_name=${encodeURIComponent(taxonName)}&quality_grade=research&per_page=${PER_PAGE}&page=${page}&order_by=votes&order=desc`;
-  const resp = await fetch(url);
-  if (!resp.ok) throw new Error(`iNaturalist API ${resp.status}`);
-  const data = await resp.json();
-  const results = data.results || [];
 
-  const startIndex = attempt % PER_PAGE;
-  // Walk forward from startIndex, wrapping, looking for usable photo.
-  for (let i = 0; i < results.length; i++) {
-    const idx = (startIndex + i) % results.length;
-    const obs = results[idx];
-    const photo = obs.photos?.[0];
-    if (!photo) continue;
-    if (!ACCEPTED_LICENSES.has(photo.license_code)) continue;
-    // Replace 'square' size with 'medium' for display.
-    const photoUrl = photo.url.replace('/square.', '/medium.');
-    const photoBlob = await fetch(photoUrl).then((r) => {
-      if (!r.ok) throw new Error(`photo fetch ${r.status}`);
-      return r.blob();
-    });
-    return {
-      blob: photoBlob,
-      mime: photoBlob.type || 'image/jpeg',
-      attribution: photo.attribution,
-      license: humanizeLicense(photo.license_code),
-      photo_id: String(photo.id),
-      observation_id: String(obs.id),
-      attempt,
-    };
-  }
-  throw new Error('No more usable photos found on this page.');
+  const result =
+    await fetchFromObservations(taxonName, attempt) ||
+    await fetchFromTaxa(taxonName, attempt);
+
+  if (result) return result;
+  throw new Error('No CC-licensed photos found for this species on iNaturalist.');
 }
 
 function humanizeLicense(code) {
