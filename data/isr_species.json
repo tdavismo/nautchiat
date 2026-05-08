@@ -1,362 +1,5 @@
 [
   {
-    "id": "rubus-chamaemorus",
-    "scientific_name": "Rubus chamaemorus",
-    "family": "Rosaceae",
-    "tier": 1,
-    "fruit_bearing": true,
-    "common_names": {
-      "en": [
-        "cloudberry",
-        "bakeapple"
-      ],
-      "inuvialuktun": {
-        "siglitun": [
-          "aqpik"
-        ],
-        "uummarmiutun": [],
-        "kangiryuarmiutun": []
-      }
-    },
-    "growth_form": "Low herbaceous perennial, 5–20 cm tall, with a single fruit per stem.",
-    "habitat": "Sphagnum bogs, tussock tundra, and wet peaty ground; abundant on the Mackenzie Delta.",
-    "distinguishing_features": "Lobed maple-like leaves with five rounded lobes; solitary white flower; fruit ripens from red to amber-gold when ready.",
-    "cultural_notes": null,
-    "photos": [
-      {
-        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/67069629/medium.jpg",
-        "license": "CC BY-NC",
-        "attribution": "(c) vladimir_korotkov, some rights reserved (CC BY-NC), uploaded by vladimir_korotkov",
-        "source": "iNaturalist",
-        "photo_id": "67069629"
-      }
-    ],
-    "audio_url": null,
-    "sources": [
-      "porsild-cody-1980"
-    ]
-  },
-  {
-    "id": "empetrum-nigrum",
-    "scientific_name": "Empetrum nigrum",
-    "family": "Ericaceae",
-    "tier": 1,
-    "fruit_bearing": true,
-    "common_names": {
-      "en": [
-        "crowberry",
-        "blackberry"
-      ],
-      "inuvialuktun": {
-        "siglitun": [
-          "paunġaq"
-        ],
-        "uummarmiutun": [],
-        "kangiryuarmiutun": []
-      }
-    },
-    "growth_form": "Low evergreen shrub forming dense mats; needle-like leaves; small black drupes.",
-    "habitat": "Heath tundra, dry rocky ridges, and well-drained slopes throughout the ISR.",
-    "distinguishing_features": "Needle-like leaves resembling a tiny conifer; round, shiny black berries with a slight purple sheen at maturity.",
-    "cultural_notes": null,
-    "photos": [
-      {
-        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/53111037/medium.jpeg",
-        "license": "CC BY",
-        "attribution": "(c) Dmitry Kulakov, some rights reserved (CC BY), uploaded by Dmitry Kulakov",
-        "source": "iNaturalist",
-        "photo_id": "53111037"
-      }
-    ],
-    "audio_url": null,
-    "sources": [
-      "porsild-cody-1980"
-    ]
-  },
-  {
-    "id": "vaccinium-vitis-idaea",
-    "scientific_name": "Vaccinium vitis-idaea",
-    "family": "Ericaceae",
-    "tier": 1,
-    "fruit_bearing": true,
-    "common_names": {
-      "en": [
-        "lingonberry",
-        "mountain cranberry",
-        "lowbush cranberry"
-      ],
-      "inuvialuktun": {
-        "siglitun": [
-          "kimmiŋnaq"
-        ],
-        "uummarmiutun": [],
-        "kangiryuarmiutun": []
-      }
-    },
-    "growth_form": "Creeping evergreen dwarf shrub, 5–15 cm; small leathery oval leaves with rolled margins.",
-    "habitat": "Heath tundra, dry to moist acidic soils; often grows alongside crowberry on rocky slopes.",
-    "distinguishing_features": "Glossy oval evergreen leaves with dark dots beneath; tart bright-red berries that persist into spring under snow.",
-    "cultural_notes": null,
-    "photos": [
-      {
-        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/32657295/medium.jpg",
-        "license": "CC BY-NC",
-        "attribution": "(c) Andy Fyon, some rights reserved (CC BY-NC), uploaded by Andy Fyon",
-        "source": "iNaturalist",
-        "photo_id": "32657295"
-      }
-    ],
-    "audio_url": null,
-    "sources": [
-      "porsild-cody-1980"
-    ]
-  },
-  {
-    "id": "vaccinium-uliginosum",
-    "scientific_name": "Vaccinium uliginosum",
-    "family": "Ericaceae",
-    "tier": 1,
-    "fruit_bearing": true,
-    "common_names": {
-      "en": [
-        "bog blueberry",
-        "bog bilberry"
-      ],
-      "inuvialuktun": {
-        "siglitun": [],
-        "uummarmiutun": [],
-        "kangiryuarmiutun": []
-      }
-    },
-    "growth_form": "Low deciduous shrub, 10–60 cm tall, with multiple branched stems and round-tipped blue-green leaves.",
-    "habitat": "Tussock tundra, dwarf shrub heath, and peaty soils throughout the ISR; common across the Mackenzie Delta.",
-    "distinguishing_features": "Round-tipped, blue-green oval deciduous leaves with smooth (untoothed) margins; pale pink urn-shaped flowers; dusty-blue berries up to ~1 cm.",
-    "cultural_notes": null,
-    "photos": [
-      {
-        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/40005912/medium.jpeg",
-        "license": "CC BY-NC",
-        "attribution": "(c) Ольга Курякова, some rights reserved (CC BY-NC), uploaded by Ольга Курякова",
-        "source": "iNaturalist",
-        "photo_id": "40005912"
-      }
-    ],
-    "audio_url": null,
-    "sources": [
-      "porsild-cody-1980"
-    ]
-  },
-  {
-    "id": "vaccinium-oxycoccos",
-    "scientific_name": "Vaccinium oxycoccos",
-    "family": "Ericaceae",
-    "tier": 1,
-    "fruit_bearing": true,
-    "common_names": {
-      "en": [
-        "bog cranberry",
-        "small cranberry"
-      ],
-      "inuvialuktun": {
-        "siglitun": [],
-        "uummarmiutun": [],
-        "kangiryuarmiutun": []
-      }
-    },
-    "growth_form": "Creeping evergreen subshrub with thread-thin trailing stems, often half-hidden in sphagnum moss.",
-    "habitat": "Sphagnum bogs and wet peat throughout the ISR.",
-    "distinguishing_features": "Tiny pointed evergreen leaves, whitish underneath; pink nodding flowers with strongly reflexed petals; small round red berries on long thread-like stems.",
-    "cultural_notes": null,
-    "photos": [
-      {
-        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/394151752/medium.jpeg",
-        "license": "CC BY-NC",
-        "attribution": "(c) Matthieu Gauvain, some rights reserved (CC BY-NC), uploaded by Matthieu Gauvain",
-        "source": "iNaturalist",
-        "photo_id": "394151752"
-      }
-    ],
-    "audio_url": null,
-    "sources": [
-      "porsild-cody-1980"
-    ]
-  },
-  {
-    "id": "arctous-alpina",
-    "scientific_name": "Arctous alpina",
-    "family": "Ericaceae",
-    "tier": 1,
-    "fruit_bearing": true,
-    "common_names": {
-      "en": [
-        "alpine bearberry",
-        "black bearberry"
-      ],
-      "inuvialuktun": {
-        "siglitun": [],
-        "uummarmiutun": [],
-        "kangiryuarmiutun": []
-      }
-    },
-    "growth_form": "Prostrate deciduous dwarf shrub forming low mats; foliage turns brilliant red in autumn.",
-    "habitat": "Heath tundra, dry rocky ridges, and exposed slopes throughout the ISR.",
-    "distinguishing_features": "Net-veined obovate deciduous leaves that turn scarlet in fall; small urn-shaped white flowers; round berries ripening from green to glossy black.",
-    "cultural_notes": null,
-    "photos": [
-      {
-        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/5962579/medium.jpeg",
-        "license": "CC BY-NC",
-        "attribution": "(c) Colin Chapman-Lam, some rights reserved (CC BY-NC)",
-        "source": "iNaturalist",
-        "photo_id": "5962579"
-      }
-    ],
-    "audio_url": null,
-    "sources": [
-      "porsild-cody-1980"
-    ]
-  },
-  {
-    "id": "rubus-arcticus",
-    "scientific_name": "Rubus arcticus",
-    "family": "Rosaceae",
-    "tier": 1,
-    "fruit_bearing": true,
-    "common_names": {
-      "en": [
-        "arctic raspberry",
-        "nagoonberry"
-      ],
-      "inuvialuktun": {
-        "siglitun": [],
-        "uummarmiutun": [],
-        "kangiryuarmiutun": []
-      }
-    },
-    "growth_form": "Low herbaceous perennial, 5–20 cm tall, with three-leaflet leaves.",
-    "habitat": "Wet meadows, streambanks, and mossy ground; widely distributed across the ISR.",
-    "distinguishing_features": "Trifoliate (three-leaflet) toothed leaves; solitary deep-pink five-petaled flower; small dark red aggregate berry resembling a tiny raspberry.",
-    "cultural_notes": null,
-    "photos": [
-      {
-        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/206348145/medium.jpg",
-        "license": "CC BY-NC",
-        "attribution": "(c) jcarisalyn, some rights reserved (CC BY-NC)",
-        "source": "iNaturalist",
-        "photo_id": "206348145"
-      }
-    ],
-    "audio_url": null,
-    "sources": [
-      "porsild-cody-1980"
-    ]
-  },
-  {
-    "id": "shepherdia-canadensis",
-    "scientific_name": "Shepherdia canadensis",
-    "family": "Elaeagnaceae",
-    "tier": 1,
-    "fruit_bearing": true,
-    "common_names": {
-      "en": [
-        "soapberry",
-        "buffaloberry",
-        "soopolallie"
-      ],
-      "inuvialuktun": {
-        "siglitun": [],
-        "uummarmiutun": [],
-        "kangiryuarmiutun": []
-      }
-    },
-    "growth_form": "Erect deciduous shrub 1–2 m tall, often along stream channels and gravelly disturbed ground.",
-    "habitat": "Mackenzie Delta channels, gravelly riverbanks, and well-drained sites at the southern edge of the ISR.",
-    "distinguishing_features": "Opposite oval leaves with silvery scaly undersides; tiny yellow-brown flowers; bitter translucent red-orange berries that froth when whipped.",
-    "cultural_notes": null,
-    "photos": [
-      {
-        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/1972996/medium.jpg",
-        "license": "CC BY-NC",
-        "attribution": "(c) bendingtree, some rights reserved (CC BY-NC), uploaded by bendingtree",
-        "source": "iNaturalist",
-        "photo_id": "1972996"
-      }
-    ],
-    "audio_url": null,
-    "sources": [
-      "porsild-cody-1980"
-    ]
-  },
-  {
-    "id": "ribes-triste",
-    "scientific_name": "Ribes triste",
-    "family": "Grossulariaceae",
-    "tier": 1,
-    "fruit_bearing": true,
-    "common_names": {
-      "en": [
-        "northern red currant",
-        "wild red currant"
-      ],
-      "inuvialuktun": {
-        "siglitun": [],
-        "uummarmiutun": [],
-        "kangiryuarmiutun": []
-      }
-    },
-    "growth_form": "Small spreading shrub, 0.3–1 m tall, often sprawling along the ground.",
-    "habitat": "Moist woods, streambanks, and shaded slopes along the Mackenzie Delta and southern ISR.",
-    "distinguishing_features": "Maple-like (3- to 5-lobed) toothed leaves, glabrous; drooping racemes of small purplish flowers; translucent bright-red currants in early summer.",
-    "cultural_notes": null,
-    "photos": [
-      {
-        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/500780591/medium.jpg",
-        "license": "CC BY-NC",
-        "attribution": "(c) Vincent Laurie, some rights reserved (CC BY-NC)",
-        "source": "iNaturalist",
-        "photo_id": "500780591"
-      }
-    ],
-    "audio_url": null,
-    "sources": [
-      "porsild-cody-1980"
-    ]
-  },
-  {
-    "id": "salix-arctica",
-    "scientific_name": "Salix arctica",
-    "family": "Salicaceae",
-    "tier": 3,
-    "fruit_bearing": false,
-    "common_names": {
-      "en": [
-        "arctic willow"
-      ],
-      "inuvialuktun": {
-        "siglitun": [],
-        "uummarmiutun": [],
-        "kangiryuarmiutun": []
-      }
-    },
-    "growth_form": "Prostrate dwarf shrub forming low mats, rarely exceeding 15 cm; woody stems creep along the ground.",
-    "habitat": "Tundra throughout the ISR; widespread on dry to moist substrates including gravel ridges and disturbed ground.",
-    "distinguishing_features": "Small oval leaves, shiny dark green above, paler below; catkins appear in early summer; dwarf creeping habit unmistakable on open tundra.",
-    "cultural_notes": null,
-    "photos": [
-      {
-        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/46142782/medium.jpg",
-        "license": "CC BY-NC",
-        "attribution": "(c) Mashuri Waite, some rights reserved (CC BY-NC), uploaded by Mashuri Waite",
-        "source": "iNaturalist",
-        "photo_id": "46142782"
-      }
-    ],
-    "audio_url": null,
-    "sources": [
-      "porsild-cody-1980"
-    ]
-  },
-  {
     "id": "rosa-acicularis",
     "scientific_name": "Rosa acicularis",
     "family": "Rosaceae",
@@ -702,6 +345,40 @@
         "attribution": "(c) Dustin Snider, some rights reserved (CC BY), uploaded by Dustin Snider",
         "source": "iNaturalist",
         "photo_id": "354824045"
+      }
+    ],
+    "audio_url": null,
+    "sources": [
+      "porsild-cody-1980"
+    ]
+  },
+  {
+    "id": "salix-arctica",
+    "scientific_name": "Salix arctica",
+    "family": "Salicaceae",
+    "tier": 2,
+    "fruit_bearing": false,
+    "common_names": {
+      "en": [
+        "arctic willow"
+      ],
+      "inuvialuktun": {
+        "siglitun": [],
+        "uummarmiutun": [],
+        "kangiryuarmiutun": []
+      }
+    },
+    "growth_form": "Prostrate to low mat-forming shrub, stems rarely exceeding 10–15 cm in height, spreading widely. Leaves elliptic to obovate, 1–4 cm, glossy above, silvery below, margins entire or obscurely toothed. Catkins erect, 1–4 cm, silky.",
+    "habitat": "Mesic to dry tundra, ridge tops, and exposed slopes throughout the Low and High Arctic. Common on well-drained mineral soils throughout the ISR.",
+    "distinguishing_features": "Prostrate habit with glossy green upper and silvery lower leaf surfaces. Upright fuzzy catkins on a ground-hugging plant are characteristic. Smaller and more prostrate than most other willows.",
+    "cultural_notes": "Young catkins eaten raw in spring as a traditional snack; mildly sweet.",
+    "photos": [
+      {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/46142782/medium.jpg",
+        "license": "CC BY-NC",
+        "attribution": "(c) Mashuri Waite, some rights reserved (CC BY-NC), uploaded by Mashuri Waite",
+        "source": "iNaturalist",
+        "photo_id": "46142782"
       }
     ],
     "audio_url": null,

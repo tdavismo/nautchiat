@@ -92,6 +92,30 @@
 [data-family="Caryophyllaceae"]     { --swatch: #d8cebd; } /* cream */
 [data-family="Grossulariaceae"]     { --swatch: #b85a5a; } /* currant red */
 [data-family="Empetraceae"]         { --swatch: #6b5380; } /* matches Ericaceae */
+[data-family="Elaeagnaceae"]        { --swatch: #9aacb8; } /* silverberry grey */
+[data-family="Betulaceae"]          { --swatch: #8ca890; } /* birch-alder sage */
+[data-family="Ranunculaceae"]       { --swatch: #d4a840; } /* marsh-marigold gold */
+[data-family="Onagraceae"]          { --swatch: #c85888; } /* fireweed magenta */
+[data-family="Orobanchaceae"]       { --swatch: #b84040; } /* paintbrush scarlet */
+[data-family="Fabaceae"]            { --swatch: #8c7aac; } /* sweetvetch violet */
+[data-family="Papaveraceae"]        { --swatch: #d8c040; } /* poppy yellow */
+[data-family="Cornaceae"]           { --swatch: #c85c5c; } /* bunchberry red */
+[data-family="Menyanthaceae"]       { --swatch: #c0c4b8; } /* buckbean white */
+[data-family="Nymphaeaceae"]        { --swatch: #c8a840; } /* pond-lily gold */
+[data-family="Droseraceae"]         { --swatch: #c87878; } /* sundew crimson */
+[data-family="Lentibulariaceae"]    { --swatch: #a08cb8; } /* butterwort violet */
+[data-family="Polemoniaceae"]       { --swatch: #6878b0; } /* Jacob's-ladder blue */
+[data-family="Equisetaceae"]        { --swatch: #6e8c78; } /* horsetail green */
+[data-family="Lycopodiaceae"]       { --swatch: #5c7864; } /* clubmoss moss */
+[data-family="Selaginellaceae"]     { --swatch: #607060; } /* selaginella olive */
+[data-family="Juncaceae"]           { --swatch: #b8a880; } /* rush straw */
+[data-family="Juncaginaceae"]       { --swatch: #7a9c94; } /* arrow-grass teal */
+[data-family="Juncaceae"]           { --swatch: #b8a880; } /* rush straw */
+[data-family="Typhaceae"]           { --swatch: #7a9ca0; } /* bur-reed teal */
+[data-family="Caprifoliaceae"]      { --swatch: #c4a8b8; } /* valerian pink */
+[data-family="Celastraceae"]        { --swatch: #d0cec0; } /* grass-of-Parnassus cream */
+[data-family="Plantaginaceae"]      { --swatch: #8ca87c; } /* mare's-tail green */
+[data-family="Tofieldiaceae"]       { --swatch: #c8b890; } /* false asphodel cream */
 
 /* ============================================================
    Reset & base
